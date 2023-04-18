@@ -1,0 +1,25 @@
+body{
+    background-color: #fff;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#color-picker{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: none;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+#color-picker::-webkit-color-swatch{
+    border-radius: 50%;
+    border: none;
+}
