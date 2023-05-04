@@ -40,4 +40,12 @@ export class FirabaseService {
     const querySnapshot = await getDocs(q);
     return querySnapshot.docs.map(doc => doc.data() as IQuestion);
   }
+
+
+async shuffleQuestions(limit: number){
+  const questions = await this. getAllQuestions();
+  const shuffledQuestions = questions.sort(() => Math.random() - 0.5);
+  return shuffledQuestions.slice(0, limit);
+}
+
 }
