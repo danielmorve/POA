@@ -1,0 +1,32 @@
+<div class="app-container">
+  <h1>Conversor de divisas</h1>
+  <input id="from" type="number" class="input">
+
+  <div class="unit-container">
+      <div class="select-container">
+          <label for="fromUnit">Convertir de:</label>
+          <select name="fromUnit" id="fromUnit">
+              <option value="kb">KB</option>
+              <option value="mb">MB</option>
+              <option value="gb">GB</option>
+              <option value="tb">TB</option>
+              <option value="pb">PB</option>
+          </select>
+      </div>
+
+      <div class="select-container">
+          <label for="toUnit">Hacia:</label>
+          <select name="toUnit" id="toUnit">
+              <option value="kb">KB</option>
+              <option value="mb">MB</option>
+              <option value="gb">GB</option>
+              <option value="tb">TB</option>
+              <option value="pb">PB</option>
+          </select>
+      </div>
+  </div>
+  <button id="convert" class="calculate-button">Calcular</button>
+  <hr>
+  <h2>Con un total de:</h2>
+  <p id="result" class="result-text"></p>
+</div>
