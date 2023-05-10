@@ -30,5 +30,6 @@ export class CurrencyConverterComponent implements OnInit {
 
   swapCurrencies(): void {
     [this.fromCurrency, this.toCurrency] = [this.toCurrency, this.fromCurrency];
+
   }
 }
