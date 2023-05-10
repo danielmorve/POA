@@ -13,6 +13,9 @@ export class CurrencyConverterComponent implements OnInit {
   toCurrency!: ICurrency;
   amount!: number;
   result!: number;
+  mxnCurrency = {name: 'Pesos Mexicanos', currency: 'MXN', unit: 1};
+  selectDisabled: 1 | 2 = 2;
+  //isSwapped = false;
 
   constructor(private currencyService: CurrencyService) {}
 
@@ -20,16 +23,16 @@ export class CurrencyConverterComponent implements OnInit {
     this.currencyService.getCurrencyData().subscribe((data) => {
       this.currencies = data;
       this.fromCurrency = this.currencies[0];
-      this.toCurrency = this.currencies[1];
+      this.toCurrency = this.mxnCurrency;
     });
   }
 
   convertCurrency(): void {
-    this.result = (this.amount / this.fromCurrency.unit) * this.toCurrency.unit;
+    this.result = (this.amount * this.fromCurrency.unit) / this.toCurrency.unit;
   }
 
   swapCurrencies(): void {
     [this.fromCurrency, this.toCurrency] = [this.toCurrency, this.fromCurrency];
-
+    this.selectDisabled = this.selectDisabled === 1 ? 2 : 1;
   }
 }

@@ -6,15 +6,20 @@
     <div class="row">
       <div class="col-md-4">
         <label for="fromCurrency" class="form-label">Desde</label>
-        <select [(ngModel)]="fromCurrency" name="fromCurrency" id="fromCurrency" class="form-control">
-          <option *ngFor="let currency of currencies" [ngValue]="currency">{{ currency.currency }}</option>
+        <select [disabled]="this.selectDisabled === 1" [(ngModel)]="fromCurrency" name="fromCurrency" id="fromCurrency" class="form-control">
+          <option [value]="mxnCurrency">MXN</option>
+          <option *ngFor="let currency of this.currencies" [ngValue]="currency">{{ currency.currency }}</option>
         </select>
+
+
       </div>
       <div class="col-md-4">
         <label for="toCurrency" class="form-label">Hasta</label>
-        <select [(ngModel)]="toCurrency" name="toCurrency" id="toCurrency" class="form-control">
-          <option *ngFor="let currency of currencies" [ngValue]="currency">{{ currency.currency }}</option>
+        <select [disabled]="this.selectDisabled === 2"  [(ngModel)]="toCurrency" name="toCurrency" id="toCurrency" class="form-control">
+          <option selected [value]="mxnCurrency">MXN</option>
+          <option *ngFor="let currency of this.currencies" [ngValue]="currency">{{ currency.currency }}</option>
         </select>
+
       </div>
       <div class="col-md-4 d-flex align-items-end">
         <button type="button" class="btn btn-secondary btn-swap" (click)="swapCurrencies()">Intercambiar</button>
